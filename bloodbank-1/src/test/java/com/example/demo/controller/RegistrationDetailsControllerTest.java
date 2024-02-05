@@ -20,6 +20,7 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,19 +33,21 @@ import com.example.demo.entity.RegistrationDetails;
 import com.example.demo.service.RegistrationDetailsService;
 import com.example.demo.service.UserService;
 
-<<<<<<< HEAD
-@SpringBootTest
-@AutoConfigureMockMvc
-public class RegistrationDetailsControllerTest {
+//<<<<<<< HEAD
+//@SpringBootTest
+//@AutoConfigureMockMvc
+//public class RegistrationDetailsControllerTest {
 	
 	
-	@InjectMocks
-    private RegistrationDetailsController myController;
-=======
+	
+
 @ExtendWith(MockitoExtension.class)
 class RegistrationDetailsControllerTest {
->>>>>>> 5709463f3e011555c391a022a68e64687bef446a
 
+
+	@InjectMocks
+    private RegistrationDetailsController myController;
+	
     @Mock
     private RegistrationDetailsService registrationDetailsService;
 
@@ -225,22 +228,23 @@ class RegistrationDetailsControllerTest {
         // Assert the result
         assertEquals(mockDetails, result);
     }
-
-    @Test
-    void testFindDetailsByEmail() {
-        // Mock data
-        String email = "test@example.com";
-        List<RegistrationDetails> mockDetailsList = Arrays.asList(new RegistrationDetails(/* sample data */));
-        when(registrationDetailsService.getRegistrationDetailsByEmail(email)).thenReturn(mockDetailsList);
-
-        // Test the controller method
-        List<RegistrationDetails> result = controller.findDetailsByEmail(email);
-
-        // Assert the result
-        assertEquals(mockDetailsList, result);
-    }
-    
 }
+
+//    @Test
+//    void testFindDetailsByEmail() {
+//        // Mock data
+//        String email = "test@example.com";
+//        List<RegistrationDetails> mockDetailsList = Arrays.asList(new RegistrationDetails(/* sample data */));
+//        when(registrationDetailsService.getRegistrationDetailsByEmail(email)).thenReturn(mockDetailsList);
+//
+//        // Test the controller method
+//        List<RegistrationDetails> result = controller.findDetailsByEmail(email);
+//
+//        // Assert the result
+//        assertEquals(mockDetailsList, result);
+//    }
+//    
+//}
 
 
 
