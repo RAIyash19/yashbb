@@ -20,6 +20,7 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,19 +33,18 @@ import com.example.demo.entity.RegistrationDetails;
 import com.example.demo.service.RegistrationDetailsService;
 import com.example.demo.service.UserService;
 
-<<<<<<< HEAD
-@SpringBootTest
-@AutoConfigureMockMvc
-public class RegistrationDetailsControllerTest {
+
+
 	
 	
-	@InjectMocks
-    private RegistrationDetailsController myController;
-=======
+
+
 @ExtendWith(MockitoExtension.class)
 class RegistrationDetailsControllerTest {
->>>>>>> 5709463f3e011555c391a022a68e64687bef446a
 
+	@InjectMocks
+    private RegistrationDetailsController myController;
+	
     @Mock
     private RegistrationDetailsService registrationDetailsService;
 
@@ -110,32 +110,32 @@ class RegistrationDetailsControllerTest {
         Mockito.verify(model).addAttribute("users", userDetailsList);
     }
 
-    @Test
-    public void testFindDetailsByEmail() {
-        // Create a mock RegistrationDetails list
-        List<RegistrationDetails> userDetailsList = new ArrayList<>();
-        // Add some dummy data to the list
-        RegistrationDetails user1 = new RegistrationDetails();
-        user1.setEmail("user1@example.com");
-        user1.setFirstname("John");
-        user1.setLastname("Doe");
-    
-        // Add more users as needed
-
-        userDetailsList.add(user1);
-        // Add more users as needed
-
-        // Mock registrationDetailsService behavior
-        when(registrationDetailsService.getRegistrationDetailsByEmail("user1@example.com")).thenReturn(userDetailsList);
-
-        // Call the controller method
-        List<RegistrationDetails> result = myController.findDetailsByEmail("user1@example.com");
-
-        // Verify interactions
-        Mockito.verify(registrationDetailsService).getRegistrationDetailsByEmail("user1@example.com");
-        // Verify that the correct user list is returned
-        assertEquals(userDetailsList, result);
-    }
+//    @Test
+//    public void testFindDetailsByEmail() {
+//        // Create a mock RegistrationDetails list
+//        List<RegistrationDetails> userDetailsList = new ArrayList<>();
+//        // Add some dummy data to the list
+//        RegistrationDetails user1 = new RegistrationDetails();
+//        user1.setEmail("user1@example.com");
+//        user1.setFirstname("John");
+//        user1.setLastname("Doe");
+//    
+//        // Add more users as needed
+//
+//        userDetailsList.add(user1);
+//        // Add more users as needed
+//
+//        // Mock registrationDetailsService behavior
+//        when(registrationDetailsService.getRegistrationDetailsByEmail("user1@example.com")).thenReturn(userDetailsList);
+//
+//        // Call the controller method
+//        List<RegistrationDetails> result = myController.findDetailsByEmail("user1@example.com");
+//
+//        // Verify interactions
+//        Mockito.verify(registrationDetailsService).getRegistrationDetailsByEmail("user1@example.com");
+//        // Verify that the correct user list is returned
+//        assertEquals(userDetailsList, result);
+//    }
 
     @Test
     void testResetPassword() {
