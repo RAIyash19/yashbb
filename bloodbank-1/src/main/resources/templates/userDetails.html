@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-
+ 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,24 +8,29 @@
     <meta name="keywords" content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Ample lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Ample admin lite dashboard bootstrap 5 dashboard template">
     <meta name="description" content="Ample Admin Lite is powerful and clean admin dashboard template, inspired by Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
-    <title>Ample Admin Lite Template by WrapPixel</title>
+    <title>User Details</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/static/plugins/images/favicon.png">
+        <link rel="icon" href="static/images/favicon.ico" type="image/x-icon">
+ 
     <!-- Custom CSS -->
     <link href="/static/css/style.min.css" rel="stylesheet">
-
+ 
     <!-- Add Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+ 
     <style>
         .navbar-skyblue {
             background-color: skyblue;
         }
-
+ 
         .company-name {
             font-size: 26px;
             color: black;
@@ -41,9 +46,9 @@
     </style>
     
 </head>
-
+ 
 <body>
-
+ 
 				
 				
     <div class="preloader">
@@ -57,13 +62,13 @@
         
         
         
-
+ 
     <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full" data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
         <header class="topbar" data-navbarbg="skin5">
             <nav class="navbar top-navbar navbar-expand-md navbar-skyblue">
                 <div class="navbar-header" data-logobg="skin6">
                     <a class="navbar-brand" href="dashboard.html">
-                        <span class="company-name">Blood Buddies</span>
+                        <span class="company-name">HemoHarbor</span>
                     </a>
                     <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
                 </div>
@@ -79,7 +84,7 @@
                 </div>
             </nav>
         </header>
-
+ 
         <aside class="left-sidebar" data-sidebarbg="skin6">
             <div class="scroll-sidebar">
                 <nav class="sidebar-nav">
@@ -112,28 +117,28 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="viewDonationHistory"
                                 aria-expanded="false">
-                                <i class="fa fa-font" aria-hidden="true"></i>
+                                <i class="fa fa-table" aria-hidden="true"></i>
                                 <span class="hide-menu">Blood Donation Views</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="viewBloodRequest"
                                 aria-expanded="false">
-                                <i class="fa fa-globe" aria-hidden="true"></i>
+                                <i class="fa fa-table" aria-hidden="true"></i>
                                 <span class="hide-menu">Blood Request</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="viewBloodRequestHistory"
                                 aria-expanded="false">
-                                <i class="fa fa-columns" aria-hidden="true"></i>
+                                <i class="fa fa-table" aria-hidden="true"></i>
                                 <span class="hide-menu">Blood Request Views</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="getInventory"
                                 aria-expanded="false">
-                                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                <i class="fa fa-table" aria-hidden="true"></i>
                                 <span class="hide-menu">Blood Inventory</span>
                             </a>
                         </li>
@@ -144,21 +149,20 @@
                             </a>
                         </li>
                          <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/admin/getInventoryDetails" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/admin/viewUserDetails" aria-expanded="false">
                                 <i class="fa fa-table" aria-hidden="true"></i>
                                 <span class="hide-menu">User Details</span>
                             </a>
                         </li>
-                         <li class="text-center p-20 signout-btn">
-                            <a href="/userLogin"
-                                class="btn d-grid btn-danger text-white" target="_blank">
-                                Sign out</a>
+                        <li class="text-center p-20 signout-btn">
+                            <a href="/logout" class="btn d-grid btn-danger text-white" > Sign out</a>
+                                
                         </li>
                     </ul>
                 </nav>
             </div>
         </aside>
-
+ 
         <div class="page-wrapper">
             <div class="page-breadcrumb bg-white">
                 <div class="row align-items-center">
@@ -167,19 +171,19 @@
                     </div>
                 </div>
             </div>
-             <div class="search-box">
+             <!--<div class="search-box">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Search by email" id="searchInput">
                         <div class="input-group-append">
                             <button class="btn btn-primary" type="button" onclick="search()">Search</button>
                         </div>
                     </div>
-                </div>
+                </div>-->
             
             <!--
              <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
         data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
-         Header with search box 
+         Header with search box
         <header class="topbar" data-navbarbg="skin5">
             <nav class="navbar top-navbar navbar-expand-md navbar-skyblue">
                 <div class="navbar-header" data-logobg="skin6">
@@ -189,8 +193,8 @@
                     <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none"
                         href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
                 </div>
-
-                 Search box added here 
+ 
+                 Search box added here
                 <div class="search-box">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Search by email" id="searchInput">
@@ -199,11 +203,11 @@
                         </div>
                     </div>
                 </div>-->
-
+ 
             
         
             
-
+ 
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-12">
@@ -238,7 +242,7 @@
         <td th:text="${user.dateOfBirth}"></td>
         <td th:text="${user.city}">2</td>
         <!-- Add more columns as needed -->
-
+ 
         <!-- Use Thymeleaf's th:if to conditionally set the status text and class -->
         <!--
         <td th:if="${user.status eq 0}" class="text-warning">Pending</td>
@@ -247,7 +251,7 @@
         -->
     </tr>
 </tbody>
-
+ 
     </tbody>
                                     <tfoot>
     <tr>
@@ -260,7 +264,7 @@
     
     
    <!-- <tbody id="donationRequestsTableBody">
-                                     Use Thymeleaf to iterate over the list of donorData from the controller 
+                                     Use Thymeleaf to iterate over the list of donorData from the controller
                                     <tr th:each="donor, rowStat : ${donor}">
                                         <td th:text="${rowStat.index + 1}"></td>
                                         <td th:text="${donor.firstname}"></td>
@@ -281,7 +285,7 @@
                 </div>
             </div>
         </div>
-
+ 
         <!-- All Jquery -->
         <script src="/static/plugins/bower_components/jquery/dist/jquery.min.js"></script>
         <!-- Bootstrap tether Core JavaScript -->
@@ -293,16 +297,16 @@
         <script src="/static/js/sidebarmenu.js"></script>
         <!-- Custom JavaScript -->
         <script src="/static/js/custom.js"></script>
-
+ 
         <!-- Include Bootstrap JS -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
         
         
         <script>
-
+ 
 function eligibleToDonate() {
     console.log('Calling eligibleToDonate function');
-
+ 
     // Assuming you have an endpoint '/admin/eligibleToDonate' on the server
     fetch('/admin/eligibleToDonate', {
         method: 'GET',
@@ -320,7 +324,7 @@ function eligibleToDonate() {
     })
     .catch(error => console.error('Error calling eligibleToDonate function:', error));
 }
-
+ 
 </script>
         
         
@@ -332,7 +336,7 @@ function eligibleToDonate() {
 		
     console.log('Accept function called with email:', email);
     // ... (rest of your code)
-
+ 
     // Assuming you have an endpoint '/acceptDonationRequest/{email}' on the server to handle donation requests
     fetch('/getDonorDetailsByEmial/' + email, {
         method: 'POST',
@@ -352,18 +356,18 @@ function eligibleToDonate() {
     })
     .catch(error => console.error('Error accepting donation request:', error));
 }
-
+ 
     
 </script>
-
+ 
 <script>
     function search() {
         let input = document.getElementById('searchInput').value.toLowerCase();
         let rows = document.querySelectorAll('#donationRequestsTableBody tr');
-
+ 
         rows.forEach(row => {
             let emailCell = row.querySelector('.email'); // Assuming you have a class named 'email' for the email cell
-
+ 
             if (emailCell && emailCell.textContent.toLowerCase().includes(input)) {
                 row.style.display = "table-row";
             } else {
@@ -372,15 +376,18 @@ function eligibleToDonate() {
         });
     }
 </script>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+ 
+ 
 <script>
     // Activate the DataTable on your table
     $(document).ready(function() {
         $('#myDataTable').DataTable();
     });
 </script>
-
+ 
         
     </body>
-
+ 
     </html>
