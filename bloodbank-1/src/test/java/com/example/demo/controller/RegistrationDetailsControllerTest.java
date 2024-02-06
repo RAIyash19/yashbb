@@ -23,6 +23,8 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.ui.Model;
@@ -32,7 +34,7 @@ import com.example.demo.entity.RegistrationDetails;
 import com.example.demo.service.RegistrationDetailsService;
 import com.example.demo.service.UserService;
 
-<<<<<<< HEAD
+
 @SpringBootTest
 @AutoConfigureMockMvc
 public class RegistrationDetailsControllerTest {
@@ -40,10 +42,10 @@ public class RegistrationDetailsControllerTest {
 	
 	@InjectMocks
     private RegistrationDetailsController myController;
-=======
-@ExtendWith(MockitoExtension.class)
-class RegistrationDetailsControllerTest {
->>>>>>> 5709463f3e011555c391a022a68e64687bef446a
+
+	@ExtendWith(MockitoExtension.class)
+	class RegistrationDetailsControllerTest {
+
 
     @Mock
     private RegistrationDetailsService registrationDetailsService;
@@ -241,6 +243,8 @@ class RegistrationDetailsControllerTest {
     }
     
 }
+}
+
 
 
 
@@ -280,4 +284,3 @@ class RegistrationDetailsControllerTest {
 //	.andExpect(status().isOk())
 //	.andExpect(content().string("User registered successfully"));
 //    }
-

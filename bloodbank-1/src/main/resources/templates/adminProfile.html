@@ -314,26 +314,11 @@ canvas {
     
          
     }
+   
        
     
 
-    function saveProfile() {
-        // Assuming that adminUpdate is set on the server side
-        var adminUpdateMessage = document.querySelector('.error-attribute').innerText;
-
-alert("Profile Saved!")
-        // Display the adminUpdate message
-        var errorMessage = document.getElementById('errorMessage');
-        errorMessage.style.display = 'block';
-        errorMessage.querySelector('.error-attribute').innerText = adminUpdateMessage;
-
-        // Prevent the default form submission
-        event.preventDefault();
-         
-
-        console.log('saveProfile function called');
-        
-    }
+ 
 
 
 
@@ -344,6 +329,11 @@ alert("Profile Saved!")
    
 
 </script>
+ <script>
+	 function saveProfile(){
+		alert("Profile Saved!")
+	 }
+ </script>
 
 
  
