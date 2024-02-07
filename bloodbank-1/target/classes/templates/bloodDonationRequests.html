@@ -172,7 +172,7 @@
                                             <th class="border-top-0">Blood Group</th>
                                             <th class="border-top-0">No.of Units</th>
                                             <th class="border-top-0">Date of Donation</th>
-                                            <th class="border-top-0">Status</th>
+                                           <!-- <th class="border-top-0">Status</th>-->
                                             <th class="border-top-0">Action</th>
                                         </tr>
                                     
@@ -186,16 +186,16 @@
 
 
 
-                                    <tr th:each="donor, rowStat : ${donor}">
+                             <!--       <tr th:each="donor, rowStat : ${donor}">
                                         <td th:text="${rowStat.index + 1}"></td>
                                         <td th:text="${donor.firstname}"></td>
                                         <td th:text="${donor.lastname}"></td>
                                         <td th:text="${donor.email}"></td>
                                         <td th:text="${donor.bloodGroup}"></td>
                                         <td th:text="${donor.units}"></td>
-                                        <td th:text="${donor.dateOfDonation}"></td>    -->      
-                                        <!-- ... (existing HTML code) ... -->
-										<td class="action-cell">
+                                        <td th:text="${donor.dateOfDonation}"></td>          
+                                         ... (existing HTML code) ... 
+										<td class="action-cell">-->
 
                                    <tr th:each="donor, rowStat : ${donor}">
     <td th:text="${rowStat.index + 1}"></td>
@@ -205,7 +205,7 @@
     <td th:text="${donor.bloodGroup}"></td>
     <td th:text="${donor.units}"></td>
     <td th:text="${donor.dateOfDonation}"></td>
-    <td th:text="${donor.status}"></td> <!-- Include the status for each donor -->
+   <!-- <td th:text="${donor.status}"></td>--> <!-- Include the status for each donor -->
     <!--<td class="action-cell">
         <button class="btn btn-success btn-accept">Accept</button>
         <button class="btn btn-danger btn-reject">Reject</button>
