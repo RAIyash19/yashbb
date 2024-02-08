@@ -70,7 +70,7 @@ class RegistrationDetailsControllerTest {
         List<RegistrationDetails> savedDetails = new ArrayList<>();
         savedDetails.add(detail);
 
-        when(userService.checkEmailExistance(detail)).thenReturn(false);
+       // when(userService.checkEmailExistance(detail)).thenReturn(0);
         when(registrationDetailsService.getRegistrationDetailsByEmail(detail.getEmail())).thenReturn(savedDetails);
 
         // Test the controller method

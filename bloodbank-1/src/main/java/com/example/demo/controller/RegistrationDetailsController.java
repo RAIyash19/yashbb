@@ -30,9 +30,12 @@ public class RegistrationDetailsController {
 	@PostMapping("/register")  //1
 	public String saveDetail(@ModelAttribute("detail") RegistrationDetails detail, Model model) {
 	
-		boolean status=userService.checkEmailExistance(detail);
-		if(status) 
-			return "userLogin";
+//		boolean status=userService.checkEmailExistance(detail);
+//		System.out.println(status);
+//		if(status) {
+//			System.out.println(status);
+//			return "userLogin";
+//		}
 //		detail.setRole("user");
 		List<RegistrationDetails> saved = service.getRegistrationDetailsByEmail(detail.getEmail());
 		for(RegistrationDetails ele: saved) {
@@ -42,7 +45,7 @@ public class RegistrationDetailsController {
 				ele.setPassword(detail.getPassword());
 				ele.setRole("USER");
 				service.saveRegistrationDetails(ele);
-				return "registrationStatus";
+				return "userLogin";
 			}
 			
 		}
@@ -70,17 +73,21 @@ public class RegistrationDetailsController {
 		return "foregetPassword";
 	}
 	
+//	@ResponseStatus(HttpStatus.OK)
+//	@ResponseBody
 	@PostMapping("/sendOTP/{email}")
-	@ResponseStatus(HttpStatus.OK)
-	@ResponseBody
-	public void sendOtp(@PathVariable("email") String email, Model model) {
-		int status = userService.sendOtp(email);
-		if (status ==1) {
-			model.addAttribute("message", "User aleady existing");
-		}
-		System.out.println("request mapped " + email);
+	public String sendOtp(@PathVariable("email") String email, Model model) {
 		
-	}
+		
+		int status = userService.sendOtp(email);
+		if (status ==1) 
+			System.out.println("User aleady existing");
+		return "userLogin";
+		
+		
+	
+		//System.out.println("request mapped " + email);
+}
 	
 	@GetMapping("/getRegistrationDetails") //1
 	public String getDetails(Model model) {

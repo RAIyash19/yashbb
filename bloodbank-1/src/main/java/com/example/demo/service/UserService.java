@@ -16,6 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import com.example.demo.configuration.CustomUserDetail;
 import com.example.demo.emailService.SendEmailService;
 import com.example.demo.entity.DonorDetails;
 import com.example.demo.entity.Inventory;
@@ -43,37 +44,37 @@ public class UserService {
 	
 	
 	
-	public int verifyLogin(RegistrationDetails received) {
-		
-		BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
-		List<RegistrationDetails> saved = service.getRegistrationDetailsByEmail(received.getEmail());
-		for (RegistrationDetails detail:saved) {
-			if (detail.getEmail().equals(received.getEmail()) && detail.getRole().equals("user")) {
-				System.out.println(detail);
-				// matches(raw password, hashed password)
-				if (bcrypt.matches(received.getPassword(), detail.getPassword()))  {
-//				if(received.getPassword().equals(detail.getPassword()))
-					return 1;	// Login success
-				}
-				else 
-					return -1;	// password incorrect
-			}
-			else {
-				return 0;
-			}
-		}
-		
-		return 0;	// Invalid credential means Details not found
-	}
+//	public int verifyLogin(RegistrationDetails received) {
+//		
+//		BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
+//		List<RegistrationDetails> saved = service.getRegistrationDetailsByEmail(received.getEmail());
+//		for (RegistrationDetails detail:saved) {
+//			if (detail.getEmail().equals(received.getEmail()) && detail.getRole().equals("user")) {
+//				System.out.println(detail);
+//				// matches(raw password, hashed password)
+//				if (bcrypt.matches(received.getPassword(), detail.getPassword()))  {
+////				if(received.getPassword().equals(detail.getPassword()))
+//					return 1;	// Login success
+//				}
+//				else 
+//					return -1;	// password incorrect
+//			}
+//			else {
+//				return 0;
+//			}
+//		}
+//		
+//		return 0;	// Invalid credential means Details not found
+//	}
 
-	public boolean checkEmailExistance(RegistrationDetails received) {
+	public int checkEmailExistance(String received) {
 		
-		List<RegistrationDetails> saved = service.getRegistrationDetailsByRole("user");
+		List<RegistrationDetails> saved = service.getRegistrationDetailsByRole("USER");
 		for (RegistrationDetails detail: saved) {
-			if(detail.getEmail().equals(received.getEmail()))
-				return true;	// Mail is already registered not possible to re register
+			if(detail.getEmail().equals(received))
+				return 1;	// Mail is already registered not possible to re register
 		}
-		return false;
+		return 0;
 	}
 
 	public List<RegistrationDetails> getProfileDetails(String email) {
@@ -331,10 +332,18 @@ public class UserService {
 	
 	
 	public int sendOtp(String email) { 
-	
-	   
 		
-		Random random = new Random();
+		int status =0;
+		// CustomUserDetail user = (CustomUserDetail) session.getAttribute("user");
+		//RegistrationDetails user =  (RegistrationDetails) email;
+		status =checkEmailExistance(email);
+		if(status ==1) {
+			System.out.println("User aleady existing inside service");
+			return 1;
+		}
+		else {
+			
+	     Random random = new Random();
 		System.out.println("started email");
         // Generate a random 6-digit number
         int otp = 100000 + random.nextInt(900000);
@@ -345,6 +354,7 @@ public class UserService {
 			detail.setOtp(otp);
 			detail.setPassword("121345");
 			service.saveRegistrationDetails(detail);
+			System.out.println("yyyyyyyyyyy");
 			return 1;
 		}
 		RegistrationDetails reg = new RegistrationDetails();
@@ -352,9 +362,12 @@ public class UserService {
 		reg.setOtp(otp);
 		reg.setPassword("121345");
 		service.saveRegistrationDetails(reg);
+		System.out.println("yyyyyyyyyyy");
+		
 		
 //		System.out.println("Successful");
 		return 0;
+		}
 	}
 
 	public int resetPassword(String email, int otp,String password, Model model) {

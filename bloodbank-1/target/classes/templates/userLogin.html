@@ -330,6 +330,7 @@ footer a {
 
         	<!-- Button to send OTP -->
         	<button type="button" onclick="sendOTP()">Send OTP</button>
+        	<span style="display: none;" id="donateMessageSpan" class ="error-attribute" th:if="${message}"  th:text="${message}"></span>
       
 
         	<!--<label for="otp">OTP:</label>-->
@@ -452,6 +453,19 @@ footer a {
 			return true; // Allow form submission
 		}
 	</script> 
+	<script>
+    // Wait for the document to be ready
+    $(document).ready(function() {
+        // Get the text content of the hidden span element
+        var message = $('#donateMessageSpan').text();
+        
+        // Check if the donateMessage is not empty
+        if(donateMessage.trim() !== '') {
+            // Display the message in an alert
+            alert(message);
+        }
+    });
+</script>
 	
 	<!--<script>
 		function validateForm() {
