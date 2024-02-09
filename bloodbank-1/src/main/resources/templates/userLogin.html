@@ -466,6 +466,40 @@ footer a {
         }
     });
 </script>
+
+
+<script>
+    function validatePasswords() {
+        var password = document.getElementById('password').value;
+        var confirmPassword = document.getElementById('confirmPassword').value;
+ 
+        // Check if passwords match
+        if (password !== confirmPassword) {
+            alert('Passwords do not match');
+            document.getElementById('confirmPassword').setAttribute('data-invalid', 'true');
+        } else {
+            // Check if password meets requirements
+            var upperCaseRegex = /[A-Z]/;
+            var numericRegex = /\d/;
+            if (!upperCaseRegex.test(password)) {
+                alert('Password should contain at least one uppercase letter');
+                document.getElementById('password').setAttribute('data-invalid', 'true');
+            } else if (!numericRegex.test(password)) {
+                alert('Password should contain at least one numeric digit');
+                document.getElementById('password').setAttribute('data-invalid', 'true');
+            } else if (password.length < 8) {
+                alert('Password should be at least 8 characters long');
+                document.getElementById('password').setAttribute('data-invalid', 'true');
+            } else {
+                document.getElementById('confirmPassword').removeAttribute('data-invalid');
+                document.getElementById('password').removeAttribute('data-invalid');
+            }
+        }
+    }
+</script>
+
+
+
 	
 	<!--<script>
 		function validateForm() {
