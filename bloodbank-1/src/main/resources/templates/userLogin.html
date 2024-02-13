@@ -372,7 +372,7 @@ footer a {
 -->                <input  type="password" id="password" name="password" placeholder="Password" required>
            
             <!--<input type="submit" value="Login">-->
-            <button type="submit">Sign In</button>
+            <button type="submit" id="myButton">Sign In</button>
              <a href="forgetPassword">Forgot your password?</a> 
         </form>
         </div>
@@ -437,22 +437,7 @@ footer a {
             container.classList.remove("right-panel-active");
         });
     </script>
-	  <script>
-		function validateForm() {
-			var email = document.getElementById('email').value;
-			var password = document.getElementById('password').value;
-	
-			// Simple validation: Check if email and password are not empty
-			if (email.trim() === '' || password.trim() === '') {
-				alert('Please enter both email and password.');
-				return false; // Prevent form submission
-			}
-	
-			// You can add more complex validation here based on your requirements
-	
-			return true; // Allow form submission
-		}
-	</script> 
+ 
 	<script>
     // Wait for the document to be ready
     $(document).ready(function() {
@@ -501,28 +486,22 @@ footer a {
 
 
 	
-	<!--<script>
-		function validateForm() {
-			var email = document.getElementById("email").value;
-			var password = document.getElementById("password").value;
-	
-			// Check if email or password is empty
-			if (email === "" || password === "") {
-				alert("Please fill in all fields.");
-				return false; // Prevent form submission
-			}
-	
-			// Validate email and password
-			if (email === "user@gmail.com" && password === "user123") {
-				// Credentials are valid, allow form submission
-				return true;
-			} else {
-				// Display an error message for invalid input
-				alert("Invalid email or password. Please try again.");
-				return false; // Prevent form submission
-			}
-		}
-	</script>-->
+	  <script>
+    document.getElementById('myButton').addEventListener('click', function() {
+      // Get the current page URL before the action
+      var initialPageUrl = window.location.href;
+
+     
+
+      // Get the current page URL after the action
+      var currentPageUrl = window.location.href;
+
+      // Check if the page URL has changed
+      if (initialPageUrl === currentPageUrl) {
+        alert('The page did not change!');
+      }
+    });
+  </script>
     
 </body>
 </html>

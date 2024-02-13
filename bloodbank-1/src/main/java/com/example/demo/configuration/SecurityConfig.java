@@ -42,6 +42,7 @@ public class SecurityConfig {
 	        .authorizeHttpRequests(request -> request
 	        	.requestMatchers("/admin/static/css/**", "/admin/static/plugins/**", "/admin/static/js/**", "/admin/static/images/**",  "/admin/static/webjars/**").permitAll()
 	        	.requestMatchers("/user/static/**", "/user/static/js/**","/user/static/css/**").permitAll()
+	        	.requestMatchers("/", "/userLogin", "/logout", "/register", "/sendOTP/{email}", "/forgetPassword", "resetPassword").permitAll()
 	        	.requestMatchers("/static/css/assets/**","static/css/vendors/**").permitAll()
 	        	.requestMatchers("/adminHome").hasAuthority("ADMIN")
 	            .requestMatchers("/userHome").hasAuthority("USER")
@@ -62,7 +63,7 @@ public class SecurityConfig {
 	            
 	            
 	            
-	            .requestMatchers("/", "/userLogin", "/logout", "/register", "/sendOTP/{email}", "/forgetPassword", "resetPassword").permitAll()  // Allow public access for login and logout
+	            //.requestMatchers("/", "/userLogin", "/logout", "/register", "/sendOTP/{email}", "/forgetPassword", "resetPassword").permitAll()  // Allow public access for login and logout
 	            // .requestMatchers("/viewProfileDetail").hasAuthority("ADMIN")  // Allow admins to access viewProfileDetail
 	            //.requestMatchers("/admin/static/**").permitAll()  // Allow access to static resources under /admin/static/**
 	            .anyRequest().authenticated())  // Require authentication for all other requests
