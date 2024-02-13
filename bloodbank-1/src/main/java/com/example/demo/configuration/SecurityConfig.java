@@ -45,6 +45,23 @@ public class SecurityConfig {
 	        	.requestMatchers("/static/css/assets/**","static/css/vendors/**").permitAll()
 	        	.requestMatchers("/adminHome").hasAuthority("ADMIN")
 	            .requestMatchers("/userHome").hasAuthority("USER")
+	            .requestMatchers("/admin/viewDonationHistory").hasAuthority("ADMIN")
+	            .requestMatchers("/admin/viewProfileDetail").hasAuthority("ADMIN")
+	            .requestMatchers("/admin/viewDonationHistory").hasAuthority("ADMIN")
+	            .requestMatchers("/admin/viewBloodRequest").hasAuthority("ADMIN")
+	            .requestMatchers("/admin/viewBloodRequestHistory").hasAuthority("ADMIN")
+	            .requestMatchers("/admin/getInventory").hasAuthority("ADMIN")
+	            .requestMatchers("/admin/getInventoryDetails").hasAuthority("ADMIN")
+	            .requestMatchers("/admin/viewUserDetails").hasAuthority("ADMIN")
+	            .requestMatchers("/user/donationRequest").hasAuthority("USER")
+	            .requestMatchers("/user/bloodRequest").hasAuthority("USER")
+	            .requestMatchers("/user/viewDonateRequestDetails").hasAuthority("USER")
+	            .requestMatchers("/user/viewBloodRequestDetails").hasAuthority("USER")
+	            .requestMatchers("/user/viewUserProfileDetails").hasAuthority("USER")
+	            
+	            
+	            
+	            
 	            .requestMatchers("/", "/userLogin", "/logout", "/register", "/sendOTP/{email}", "/forgetPassword", "resetPassword").permitAll()  // Allow public access for login and logout
 	            // .requestMatchers("/viewProfileDetail").hasAuthority("ADMIN")  // Allow admins to access viewProfileDetail
 	            //.requestMatchers("/admin/static/**").permitAll()  // Allow access to static resources under /admin/static/**
