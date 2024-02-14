@@ -357,13 +357,6 @@ public class UserService {
 			System.out.println("yyyyyyyyyyy");
 			return 1;
 		}
-//		RegistrationDetails reg = new RegistrationDetails();
-//		reg.setEmail(email);
-//		reg.setOtp(otp);
-//		reg.setPassword("121345");
-//		service.saveRegistrationDetails(reg);
-//		System.out.println("yyyyyyyyyyy");
-		
 		
 //		System.out.println("Successful");
 		return 0;

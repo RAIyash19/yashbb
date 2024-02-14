@@ -187,6 +187,18 @@ public class AdminController {
      
       }
   
+  @GetMapping("/userCount")
+  public List<Integer> totalUserCount(){
+	  List<RegistrationDetails> saved =registrationDetailsService.getTotalUserCount();
+	  int count = saved.size();
+      List<Integer> countDonor = new ArrayList<>();
+      countDonor.add(count);
+      System.out.println(countDonor);
+      return countDonor;
+	  
+  }
+  
+  
 //  @GetMapping("/getCountByBloodGroup/{bloodGroup}")
 //  public Map<String, Long> getCountByBloodGroup(@PathVariable String bloodGroup) {
 //      return inventoryService.getCountByBloodGroup(bloodGroup);

@@ -59,4 +59,12 @@ public class RegistrationDetailsService {
 		return repo.findByRole(role);
 	}
 	
+	public List<RegistrationDetails> getTotalUserCount() {
+		// TODO Auto-generated method stub
+		return repo.findAll();
+	}
+
+
+	
+	
 }

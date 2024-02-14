@@ -116,6 +116,15 @@ public class UserWebController {
          System.out.println(b);
          model.addAttribute("requestCount", b);
          
+         //totalusercount
+         List<Integer> userCount=adminService.totalUserCount();
+         int c=userCount.get(0);
+         System.out.println(a);
+         
+         model.addAttribute("userCount", c);
+         
+         
+         
    
         
          List<BloodGroupDetails> bloodCount = admin.getDetail();
